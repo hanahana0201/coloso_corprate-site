@@ -22,6 +22,7 @@ module.exports = {
         'gutter-x': 'max(2.5vw,1rem)',
         'gutter-y-0.5': 'max(1.25vw,1rem)',
         'gutter-y': 'max(2.5vw,2rem)',
+        'gutter-y-2': 'max(5vw,4rem)',
       },
     },
   },
