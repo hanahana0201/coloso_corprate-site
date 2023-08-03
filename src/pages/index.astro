@@ -3,5 +3,28 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="AI Coloso.">
-  <main></main>
+  <main>
+    <div
+      class="flex h-[calc(120vh-(32px+theme(spacing.gutter-y)*2))] flex-col px-gutter-x"
+    >
+      <h1 class="text-[max(5vw,4rem)] font-bold leading-none text-white">
+        Powering Your Business with AI
+      </h1>
+      <p class="mt-gutter-y-0.5 text-lg">
+        AI Coloso. is a startup that uses cutting-edge artificial intelligence
+        technology to help businesses of all sizes streamline their operations
+        and boost their bottom line.
+      </p>
+      <figure class="mt-gutter-y grow">
+        <img
+          class="h-full w-full object-cover"
+          src="/images/hero.jpg"
+          alt=""
+          width="1920"
+          height="940"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </main>
 </Layout>
