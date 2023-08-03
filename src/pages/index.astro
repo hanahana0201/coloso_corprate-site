@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="AI Coloso.">
@@ -26,10 +27,8 @@ import Layout from '../layouts/Layout.astro';
         />
       </figure>
     </div>
-    <section class="px-gutter-x pt-gutter-y-2">
-      <h2 class="text-[max(4vw,3.2rem)] font-bold leading-[1.125] text-white">
-        Our Mission
-      </h2>
+    <section class="px-gutter-x pb-gutter-y pt-gutter-y-2">
+      <h2>Our Mission</h2>
       <p class="mt-gutter-y">
         At AI Coloso., our mission is to make AI accessible and affordable for
         businesses of all sizes. We believe that AI has the power to transform
@@ -38,16 +37,66 @@ import Layout from '../layouts/Layout.astro';
         startup or a large enterprise, we're here to help you take advantage of
         the latest AI technology and stay ahead of the competition.
       </p>
-      <a
-        href="/mission/"
-        class="mt-gutter-y inline-flex gap-x-2.5 bg-white px-2.5 py-0.5 text-xl font-medium text-black after:content-['->']"
-        >Learn More</a
-      >
+      <Button className="mt-gutter-y" href="/mission">Learn More</Button>
       <div
         class="-mx-gutter-x mt-gutter-y overflow-hidden whitespace-nowrap text-[max(8vw,6.4rem)] font-bold leading-none text-neutral-900"
       >
         Make AI Accessible and Affordable for Businesses of All Sizes.
       </div>
     </section>
+    <section class="border-t border-t-neutral-500 px-gutter-x py-gutter-y-2">
+      <h2>Our Products</h2>
+      <ul class="mt-gutter-y grid grid-cols-3 gap-gutter-x">
+        {
+          [
+            {
+              name: 'AI Assistant',
+              slug: 'ai-assistant',
+            },
+            {
+              name: 'AI Analytics',
+              slug: 'ai-analytics',
+            },
+            {
+              name: 'AI Chatbots',
+              slug: 'ai-chatbots',
+            },
+          ].map(({ name, slug }) => {
+            return (
+              <li>
+                <a href={`/products/${slug}/`}>
+                  <figure class="grid place-items-center border border-neutral-500">
+                    <img
+                      src={`/images/icon-${slug}.svg`}
+                      alt=""
+                      width="200"
+                      height="200"
+                      decoding="async"
+                    />
+                  </figure>
+                  <h3 class="mt-gutter-y-0.5 text-lg font-medium">{name}</h3>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="mt-gutter-y">
+        At AI Coloso., we offer a range of AI-powered products designed to help
+        businesses achieve their goals. Our flagship product, AI Assistant, can
+        help you automate routine tasks like data entry and appointment
+        scheduling, freeing up your team to focus on more strategic initiatives.
+        We also offer AI-powered analytics tools, chatbots, and virtual
+        assistants to help you streamline your operations and engage with
+        customers more effectively.
+      </p>
+      <Button className="mt-gutter-y" href="/mission">Learn More</Button>
+    </section>
   </main>
 </Layout>
+
+<style>
+  h2 {
+    @apply text-[max(4vw,3.2rem)] font-bold leading-[1.125] text-white;
+  }
+</style>
