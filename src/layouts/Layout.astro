@@ -17,7 +17,24 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body>
+  <body class="bg-black leading-normal text-neutral-300">
+    <header
+      class="my-gutter-y-0.5 flex items-center justify-between gap-gutter-x px-gutter-x py-gutter-y-0.5"
+    >
+      <a href="">
+        <img
+          src="/images/Logo.svg"
+          alt="AI Coloso."
+          width="104"
+          height="32"
+          decoding="async"
+        />
+      </a>
+      <button
+        class="min-w-[4.125rem] border border-white px-[0.5em] text-white"
+        type="button">Menu</button
+      >
+    </header>
     <slot />
   </body>
 </html>
