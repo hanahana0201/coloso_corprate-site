@@ -74,7 +74,9 @@ import Button from '../components/Button.astro';
                       decoding="async"
                     />
                   </figure>
-                  <h3 class="mt-gutter-y-0.5 text-lg font-medium">{name}</h3>
+                  <h3 class="mt-gutter-y-0.5 text-lg font-medium text-white">
+                    {name}
+                  </h3>
                 </a>
               </li>
             );
@@ -91,6 +93,70 @@ import Button from '../components/Button.astro';
         customers more effectively.
       </p>
       <Button className="mt-gutter-y" href="/mission">Learn More</Button>
+    </section>
+    <section class="border-t border-t-neutral-500 px-gutter-x py-gutter-y-2">
+      <h2>Our Team</h2>
+      <ul class="grid grid-cols-3 gap-x-gutter-x gap-y-gutter-y">
+        {
+          [
+            {
+              name: 'Dr. John Doe',
+              slug: 'john-doe',
+              title: 'CEO',
+            },
+            {
+              name: 'Sarah Johnson',
+              slug: 'sarah-johnson',
+              title: 'Sales Manager',
+            },
+            {
+              name: 'Michael Smith',
+              slug: 'michael-smith',
+              title: 'Lead developer',
+            },
+            {
+              name: 'David Kim',
+              slug: 'david-kim',
+              title: 'Data Scientist',
+            },
+          ].map(({ name, slug, title }) => {
+            return (
+              <li>
+                <img
+                  src={`/images/profile-${slug}.jpg`}
+                  alt={`${name}'s photo`}
+                  width="440"
+                  height="440"
+                  decoding="async"
+                />
+                <h3 class="mt-gutter-y-0.5 font-medium text-white">{name}</h3>
+                <p class="text-neutral-500">{title}</p>
+              </li>
+            );
+          })
+        }
+        <li>
+          <a href="/careers/">
+            <figure class="border border-neutral-500">
+              <img
+                src="/images/icon-plus.svg"
+                width="200"
+                height="200"
+                decoding="async"
+                alt=""
+              />
+            </figure>
+            <p class="mt-gutter-y-0.5 font-medium text-white">Join Us</p>
+          </a>
+        </li>
+      </ul>
+      <p class="mt-gutter-y">
+        Our team of AI experts has years of experience building and deploying
+        cutting-edge AI solutions for businesses across a range of industries.
+        Led by our CEO, Dr. Jane Doe, our team is dedicated to staying on the
+        cutting edge of AI technology and using our expertise to help businesses
+        like yours succeed.
+      </p>
     </section>
   </main>
 </Layout>
