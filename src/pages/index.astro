@@ -96,7 +96,7 @@ import Button from '../components/Button.astro';
     </section>
     <section class="border-t border-t-neutral-500 px-gutter-x py-gutter-y-2">
       <h2>Our Team</h2>
-      <ul class="grid grid-cols-3 gap-x-gutter-x gap-y-gutter-y">
+      <ul class="mt-gutter-y grid grid-cols-3 gap-x-gutter-x gap-y-gutter-y">
         {
           [
             {
@@ -157,6 +157,63 @@ import Button from '../components/Button.astro';
         cutting edge of AI technology and using our expertise to help businesses
         like yours succeed.
       </p>
+    </section>
+    <section class="border-t border-t-neutral-500 px-gutter-x py-gutter-y-2">
+      <h2>News</h2>
+      <ul class="mt-gutter-y border-t border-t-neutral-500">
+        {
+          [
+            {
+              date: 'April 1, 2023',
+              category: 'Technology',
+              title:
+                'AIgenius Launches Revolutionary AI-Powered Chatbot Platform',
+              id: 5,
+            },
+            {
+              date: 'June 15, 2023',
+              category: 'Research',
+              title:
+                'Brainwave AI Unveils Groundbreaking New AI Language Model',
+              id: 4,
+            },
+            {
+              date: 'September 7, 2023',
+              category: 'Business',
+              title:
+                'Cognitive Ventures Raises $50 Million in Series B Funding Round',
+              id: 3,
+            },
+            {
+              date: 'November 22, 2023',
+              category: 'Innovation',
+              title:
+                'DeepMind Technologies Develops Breakthrough AI System for Medical Diagnosis',
+              id: 2,
+            },
+            {
+              date: 'January 12, 2024',
+              category: 'Industry',
+              title:
+                'NeuralNet Innovations Collaborates with Fortune 500 Company to Deploy AI SolutionsNeuralNet Innovations Collaborates with Fortune 500 Company to Deploy AI Solutions',
+              id: 2,
+            },
+          ].map(({ date, category, title, id }) => {
+            return (
+              <li class="border-b border-b-neutral-500">
+                <a href={`/news/${id}`} class="block py-gutter-y-0.5">
+                  <div class="grid grid-cols-2 gap-x-gutter-x text-neutral-500">
+                    <p>{date}</p>
+                    <p>{category}</p>
+                  </div>
+                  <h3 class="mt-2 font-medium">{title}</h3>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <Button className="mt-gutter-y" href="/news/">View All</Button>
     </section>
   </main>
 </Layout>
