@@ -29,7 +29,7 @@ const { title, description } = Astro.props;
     >
       <a href="">
         <img
-          src="/images/Logo.svg"
+          src="/images/logo.svg"
           alt="AI Coloso."
           width="104"
           height="32"
@@ -42,5 +42,145 @@ const { title, description } = Astro.props;
       >
     </header>
     <slot />
+    <footer
+      class="border-t border-t-neutral-500 px-gutter-x pb-gutter-y-0.5 pt-gutter-y-2"
+    >
+      <a href="/">
+        <img
+          src="/images/logo.svg"
+          alt="AI Coloso."
+          width="104"
+          height="32"
+          decoding="async"
+        />
+      </a>
+      <nav class="mt-gutter-y">
+        <ul class="grid grid-cols-2 gap-x-gutter-x">
+          {
+            [
+              {
+                label: 'News',
+                href: '/news/',
+                children: [
+                  {
+                    label: 'Technology',
+                    href: '/news/technology/',
+                  },
+                  {
+                    label: 'Research',
+                    href: '/news/research/',
+                  },
+                  {
+                    label: 'Business',
+                    href: '/news/business/',
+                  },
+                  {
+                    label: 'Innovation',
+                    href: '/news/innovation/',
+                  },
+                  {
+                    label: 'Industry',
+                    href: '/news/industry/',
+                  },
+                ],
+              },
+              {
+                label: 'Products',
+                href: '/products/',
+                children: [
+                  {
+                    label: 'AI Assistant',
+                    href: '/products/ai-assistant/',
+                  },
+                  {
+                    label: 'AI Analytics',
+                    href: '/products/ai-analytics/',
+                  },
+                  {
+                    label: 'AI Chatbots',
+                    href: '/products/ai-chatbots/',
+                  },
+                ],
+              },
+              {
+                label: 'About Us',
+                href: '/about/',
+                className: 'row-span-4 mt-gutter-y',
+                children: [
+                  {
+                    label: 'Our Mission',
+                    href: '/about/mission/',
+                  },
+                  {
+                    label: 'Our Team',
+                    href: '/about/team/',
+                  },
+                  {
+                    label: 'Company Information',
+                    href: '/about/information/',
+                  },
+                ],
+              },
+              {
+                label: 'Careers',
+                href: '/careers/',
+                className: 'mt-gutter-y',
+              },
+              {
+                label: 'Terms & Policies',
+                href: '/terms/',
+                className: 'col-start-2',
+              },
+              {
+                label: 'Privacy Policy',
+                href: '/privacy/',
+                className: 'col-start-2',
+              },
+            ].map(({ label, href, children, className }) => {
+              return (
+                <li class={className}>
+                  <a
+                    class="inline-block py-[0.3125rem] font-medium"
+                    href={href}
+                  >
+                    {label}
+                  </a>
+                  {children && (
+                    <ul>
+                      {children.map(({ label, href }) => {
+                        return (
+                          <li>
+                            <a
+                              class="inline-block py-[0.3125rem] text-neutral-500"
+                              href={href}
+                            >
+                              {label}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+      <a
+        href="/contact"
+        class="mt-gutter-y flex flex-wrap justify-center whitespace-nowrap text-[16vw] font-medium leading-none tracking-[-0.03em] text-white after:content-['--------->']"
+        >Contact Us</a
+      >
+      <div class="-mx-gutter-x mt-gutter-y overflow-hidden">
+        <p class="flex gap-x-[0.5em]">
+          {
+            [...Array(10)].map(() => {
+              return <span class="whitespace-nowrap">© 2023 AI Coloso.</span>;
+            })
+          }
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
