@@ -11,14 +11,16 @@ import Button from '../components/Button.astro';
       <h1 class="text-[max(5vw,4rem)] font-bold leading-none text-white">
         Powering Your Business with AI
       </h1>
-      <p class="mt-gutter-y-0.5 text-lg">
+      <p
+        class="mt-gutter-y-0.5 min-w-[calc((100%-theme(spacing.gutter-x))/2)] max-w-[36rem] text-lg"
+      >
         AI Coloso. is a startup that uses cutting-edge artificial intelligence
         technology to help businesses of all sizes streamline their operations
         and boost their bottom line.
       </p>
-      <figure class="mt-gutter-y grow">
+      <figure class="relative mt-gutter-y grow">
         <img
-          class="h-full w-full object-cover"
+          class="absolute h-full w-full object-cover"
           src="/images/hero.jpg"
           alt=""
           width="1920"
@@ -29,15 +31,20 @@ import Button from '../components/Button.astro';
     </div>
     <section class="px-gutter-x pb-gutter-y pt-gutter-y-2">
       <h2>Our Mission</h2>
-      <p class="mt-gutter-y">
-        At AI Coloso., our mission is to make AI accessible and affordable for
-        businesses of all sizes. We believe that AI has the power to transform
-        the way businesses operate, and we're committed to helping our customers
-        harness that power to achieve their goals. Whether you're a small
-        startup or a large enterprise, we're here to help you take advantage of
-        the latest AI technology and stay ahead of the competition.
-      </p>
-      <Button className="mt-gutter-y" href="/mission">Learn More</Button>
+      <div
+        class="ml-auto min-w-[calc((100%-theme(spacing.gutter-x))/2)] max-w-[36rem]"
+      >
+        <p class="mt-gutter-y">
+          At AI Coloso., our mission is to make AI accessible and affordable for
+          businesses of all sizes. We believe that AI has the power to transform
+          the way businesses operate, and we're committed to helping our
+          customers harness that power to achieve their goals. Whether you're a
+          small startup or a large enterprise, we're here to help you take
+          advantage of the latest AI technology and stay ahead of the
+          competition.
+        </p>
+        <Button className="mt-gutter-y" href="/mission">Learn More</Button>
+      </div>
       <div
         class="-mx-gutter-x mt-gutter-y overflow-hidden whitespace-nowrap text-[max(8vw,6.4rem)] font-bold leading-none text-neutral-900"
       >
@@ -46,57 +53,66 @@ import Button from '../components/Button.astro';
     </section>
     <section class="border-t border-t-neutral-500 px-gutter-x py-gutter-y-2">
       <h2>Our Products</h2>
-      <ul class="mt-gutter-y grid grid-cols-3 gap-gutter-x">
-        {
-          [
-            {
-              name: 'AI Assistant',
-              slug: 'ai-assistant',
-            },
-            {
-              name: 'AI Analytics',
-              slug: 'ai-analytics',
-            },
-            {
-              name: 'AI Chatbots',
-              slug: 'ai-chatbots',
-            },
-          ].map(({ name, slug }) => {
-            return (
-              <li>
-                <a href={`/products/${slug}/`}>
-                  <figure class="grid place-items-center border border-neutral-500">
-                    <img
-                      src={`/images/icon-${slug}.svg`}
-                      alt=""
-                      width="200"
-                      height="200"
-                      decoding="async"
-                    />
-                  </figure>
-                  <h3 class="mt-gutter-y-0.5 text-lg font-medium text-white">
-                    {name}
-                  </h3>
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-      <p class="mt-gutter-y">
-        At AI Coloso., we offer a range of AI-powered products designed to help
-        businesses achieve their goals. Our flagship product, AI Assistant, can
-        help you automate routine tasks like data entry and appointment
-        scheduling, freeing up your team to focus on more strategic initiatives.
-        We also offer AI-powered analytics tools, chatbots, and virtual
-        assistants to help you streamline your operations and engage with
-        customers more effectively.
-      </p>
-      <Button className="mt-gutter-y" href="/mission">Learn More</Button>
+      <div class="lg:grid lg:grid-cols-2 lg:gap-gutter-x">
+        <ul class="mt-gutter-y grid grid-cols-3 gap-gutter-x lg:order-2">
+          {
+            [
+              {
+                name: 'AI Assistant',
+                slug: 'ai-assistant',
+              },
+              {
+                name: 'AI Analytics',
+                slug: 'ai-analytics',
+              },
+              {
+                name: 'AI Chatbots',
+                slug: 'ai-chatbots',
+              },
+            ].map(({ name, slug }) => {
+              return (
+                <li>
+                  <a href={`/products/${slug}/`}>
+                    <figure class="grid aspect-square place-items-center border border-neutral-500">
+                      <img
+                        src={`/images/icon-${slug}.svg`}
+                        alt=""
+                        width="200"
+                        height="200"
+                        decoding="async"
+                        class="h-full w-full"
+                      />
+                    </figure>
+                    <h3 class="mt-gutter-y-0.5 text-lg font-medium text-white">
+                      {name}
+                    </h3>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+        <div>
+          <p
+            class="mt-gutter-y min-w-[calc((100%-theme(spacing.gutter-x)*2)/3*2+theme(spacing.gutter-x))] max-w-[30rem]"
+          >
+            At AI Coloso., we offer a range of AI-powered products designed to
+            help businesses achieve their goals. Our flagship product, AI
+            Assistant, can help you automate routine tasks like data entry and
+            appointment scheduling, freeing up your team to focus on more
+            strategic initiatives. We also offer AI-powered analytics tools,
+            chatbots, and virtual assistants to help you streamline your
+            operations and engage with customers more effectively.
+          </p>
+          <Button className="mt-gutter-y" href="/mission">Learn More</Button>
+        </div>
+      </div>
     </section>
     <section class="border-t border-t-neutral-500 px-gutter-x py-gutter-y-2">
       <h2>Our Team</h2>
-      <ul class="mt-gutter-y grid grid-cols-3 gap-x-gutter-x gap-y-gutter-y">
+      <ul
+        class="mt-gutter-y grid grid-cols-3 gap-x-gutter-x gap-y-gutter-y lg:grid-cols-6"
+      >
         {
           [
             {
@@ -122,13 +138,16 @@ import Button from '../components/Button.astro';
           ].map(({ name, slug, title }) => {
             return (
               <li>
-                <img
-                  src={`/images/profile-${slug}.jpg`}
-                  alt={`${name}'s photo`}
-                  width="440"
-                  height="440"
-                  decoding="async"
-                />
+                <figure class="aspect-square">
+                  <img
+                    src={`/images/profile-${slug}.jpg`}
+                    alt={`${name}'s photo`}
+                    width="440"
+                    height="440"
+                    decoding="async"
+                    class="h-full w-full"
+                  />
+                </figure>
                 <h3 class="mt-gutter-y-0.5 font-medium text-white">{name}</h3>
                 <p class="text-neutral-500">{title}</p>
               </li>
@@ -137,20 +156,23 @@ import Button from '../components/Button.astro';
         }
         <li>
           <a href="/careers/">
-            <figure class="border border-neutral-500">
+            <figure class="aspect-square border border-neutral-500">
               <img
                 src="/images/icon-plus.svg"
                 width="200"
                 height="200"
                 decoding="async"
                 alt=""
+                class="h-full w-full"
               />
             </figure>
             <p class="mt-gutter-y-0.5 font-medium text-white">Join Us</p>
           </a>
         </li>
       </ul>
-      <p class="mt-gutter-y">
+      <p
+        class="mt-gutter-y min-w-[calc((100%-theme(spacing.gutter-x))/2)] max-w-[36rem]"
+      >
         Our team of AI experts has years of experience building and deploying
         cutting-edge AI solutions for businesses across a range of industries.
         Led by our CEO, Dr. Jane Doe, our team is dedicated to staying on the
@@ -201,12 +223,15 @@ import Button from '../components/Button.astro';
           ].map(({ date, category, title, id }) => {
             return (
               <li class="border-b border-b-neutral-500">
-                <a href={`/news/${id}`} class="block py-gutter-y-0.5">
-                  <div class="grid grid-cols-2 gap-x-gutter-x text-neutral-500">
+                <a
+                  href={`/news/${id}`}
+                  class="grid gap-x-gutter-x gap-y-2 py-gutter-y-0.5 md:grid-cols-6"
+                >
+                  <div class="grid grid-cols-2 gap-x-gutter-x text-neutral-500 md:col-span-2">
                     <p>{date}</p>
                     <p>{category}</p>
                   </div>
-                  <h3 class="mt-2 font-medium">{title}</h3>
+                  <h3 class="font-medium md:col-span-4">{title}</h3>
                 </a>
               </li>
             );
