@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     fontSize: {
       xs: ['0.8rem', '1rem'],
@@ -23,6 +26,9 @@ module.exports = {
         'gutter-y-0.5': 'max(1.25vw,1rem)',
         'gutter-y': 'max(2.5vw,2rem)',
         'gutter-y-2': 'max(5vw,4rem)',
+      },
+      zIndex: {
+        header: 100,
       },
     },
   },

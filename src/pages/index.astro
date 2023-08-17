@@ -72,8 +72,8 @@ import Button from '../components/Button.astro';
             ].map(({ name, slug }) => {
               return (
                 <li>
-                  <a href={`/products/${slug}/`}>
-                    <figure class="grid aspect-square place-items-center border border-neutral-500">
+                  <a href={`/products/${slug}/`} class="group">
+                    <figure class="grid aspect-square place-items-center border border-neutral-500 transition-colors duration-100 ease-out group-hover:border-green-500">
                       <img
                         src={`/images/icon-${slug}.svg`}
                         alt=""
@@ -155,8 +155,10 @@ import Button from '../components/Button.astro';
           })
         }
         <li>
-          <a href="/careers/">
-            <figure class="aspect-square border border-neutral-500">
+          <a href="/careers/" class="group">
+            <figure
+              class="aspect-square border border-neutral-500 transition-colors duration-100 ease-out group-hover:border-green-500"
+            >
               <img
                 src="/images/icon-plus.svg"
                 width="200"
@@ -225,13 +227,15 @@ import Button from '../components/Button.astro';
               <li class="border-b border-b-neutral-500">
                 <a
                   href={`/news/${id}`}
-                  class="grid gap-x-gutter-x gap-y-2 py-gutter-y-0.5 md:grid-cols-6"
+                  class="group grid gap-x-gutter-x gap-y-2 py-gutter-y-0.5 md:grid-cols-6"
                 >
                   <div class="grid grid-cols-2 gap-x-gutter-x text-neutral-500 md:col-span-2">
                     <p>{date}</p>
                     <p>{category}</p>
                   </div>
-                  <h3 class="font-medium md:col-span-4">{title}</h3>
+                  <h3 class="font-medium transition-colors duration-100 ease-out group-hover:text-green-500 md:col-span-4">
+                    {title}
+                  </h3>
                 </a>
               </li>
             );

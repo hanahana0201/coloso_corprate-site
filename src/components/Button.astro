@@ -10,7 +10,7 @@ const { href, className } = Astro.props;
 <a
   href={href}
   class:list={[
-    "inline-flex gap-x-2.5 bg-white px-2.5 py-0.5 text-xl font-medium text-black after:content-['->']",
+    "inline-flex gap-x-2.5 bg-white px-2.5 py-0.5 text-xl font-medium text-black after:content-['->'] hover:bg-green-500 transition-colors duration-100 ease-out",
     className,
   ]}><slot /></a
 >

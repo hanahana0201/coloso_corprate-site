@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+
 export interface Props {
   title: string;
   description?: string;
@@ -24,23 +26,7 @@ const { title, description } = Astro.props;
     />
   </head>
   <body class="bg-black font-roboto-mono leading-normal text-neutral-300">
-    <header
-      class="my-gutter-y-0.5 flex items-center justify-between gap-gutter-x px-gutter-x py-gutter-y-0.5"
-    >
-      <a href="">
-        <img
-          src="/images/logo.svg"
-          alt="AI Coloso."
-          width="104"
-          height="32"
-          decoding="async"
-        />
-      </a>
-      <button
-        class="min-w-[4.125rem] border border-white px-[0.5em] text-white"
-        type="button">Menu</button
-      >
-    </header>
+    <Header />
     <slot />
     <footer
       class="border-t border-t-neutral-500 px-gutter-x pb-gutter-y-0.5 pt-gutter-y-2"
@@ -143,7 +129,7 @@ const { title, description } = Astro.props;
                 return (
                   <li class={className}>
                     <a
-                      class="inline-block py-[0.3125rem] font-medium"
+                      class="inline-block py-[0.3125rem] font-medium transition-colors duration-100 ease-out hover:text-green-500"
                       href={href}
                     >
                       {label}
@@ -154,7 +140,7 @@ const { title, description } = Astro.props;
                           return (
                             <li>
                               <a
-                                class="inline-block py-[0.3125rem] text-neutral-500"
+                                class="inline-block py-[0.3125rem] text-neutral-500 transition-colors duration-100 ease-out hover:text-green-500"
                                 href={href}
                               >
                                 {label}
@@ -174,7 +160,7 @@ const { title, description } = Astro.props;
 
       <a
         href="/contact"
-        class="mt-gutter-y flex flex-wrap justify-center gap-x-gutter-x whitespace-nowrap text-[16vw] font-medium leading-none tracking-[-0.03em] text-white after:content-['--------->'] lg:flex-nowrap lg:text-[8vw]"
+        class="mt-gutter-y flex flex-wrap justify-center gap-x-gutter-x whitespace-nowrap text-[16vw] font-medium leading-none tracking-[-0.03em] text-white transition-colors duration-100 ease-out after:content-['--------->'] hover:text-green-500 lg:flex-nowrap lg:text-[8vw]"
         >Contact Us</a
       >
       <div class="-mx-gutter-x mt-gutter-y overflow-hidden">
