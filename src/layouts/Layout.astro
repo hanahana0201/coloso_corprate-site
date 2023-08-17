@@ -164,10 +164,19 @@ const { title, description } = Astro.props;
         >Contact Us</a
       >
       <div class="-mx-gutter-x mt-gutter-y overflow-hidden">
-        <p class="flex gap-x-[0.5em] text-[max(1vw,1rem)]">
+        <p
+          class="flex w-fit animate-[marquee_3750ms_linear_infinite] text-[max(1vw,1rem)] [--translate-x:-10%]"
+        >
           {
-            [...Array(10)].map(() => {
-              return <span class="whitespace-nowrap">© 2023 AI Coloso.</span>;
+            [...Array(10)].map((_, i) => {
+              return (
+                <span
+                  class="mr-[0.5em] whitespace-nowrap"
+                  aria-hidden={i !== 0}
+                >
+                  © 2023 AI Coloso.
+                </span>
+              );
             })
           }
         </p>

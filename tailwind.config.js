@@ -27,6 +27,12 @@ module.exports = {
         'gutter-y': 'max(2.5vw,2rem)',
         'gutter-y-2': 'max(5vw,4rem)',
       },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(var(--translate-x, -50%))' },
+        },
+      },
       zIndex: {
         header: 100,
       },
