@@ -184,3 +184,13 @@ const { title, description } = Astro.props;
     </footer>
   </body>
 </html>
+
+<script>
+  import { TypeShuffle } from '../scripts/typeShuffle';
+  const textElements = document.querySelectorAll('.js-type-shuffle');
+
+  textElements.forEach((textElement) => {
+    const ts = new TypeShuffle(textElement);
+    ts.trigger('fx6');
+  });
+</script>

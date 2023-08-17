@@ -10,6 +10,14 @@ module.exports = {
     sourceType: 'module',
     ecmaVersion: 2022,
   },
+  rules: {
+    'tailwindcss/no-custom-classname': [
+      1,
+      {
+        whitelist: ['js-.*'],
+      },
+    ],
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.
