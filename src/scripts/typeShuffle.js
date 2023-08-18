@@ -163,7 +163,9 @@ export class TypeShuffle {
       by: 'lines',
     });
     results.forEach((s) => {
-      console.log(s);
+      s.word.forEach((word) => {
+        word.setAttribute('aria-hidden', 'true');
+      });
       Splitting({ target: s.words });
     });
 
