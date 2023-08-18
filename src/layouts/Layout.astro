@@ -129,7 +129,7 @@ const { title, description } = Astro.props;
                 return (
                   <li class={className}>
                     <a
-                      class="inline-block py-[0.3125rem] font-medium transition-colors duration-100 ease-out hover:text-green-500"
+                      class="js-type-shuffle inline-block py-[0.3125rem] font-medium transition-colors duration-100 ease-out hover:text-green-500"
                       href={href}
                     >
                       {label}
@@ -160,7 +160,7 @@ const { title, description } = Astro.props;
 
       <a
         href="/contact"
-        class="mt-gutter-y flex flex-wrap justify-center gap-x-gutter-x whitespace-nowrap text-[16vw] font-medium leading-none tracking-[-0.03em] text-white transition-colors duration-100 ease-out after:content-['--------->'] hover:text-green-500 lg:flex-nowrap lg:text-[8vw]"
+        class="js-type-shuffle mt-gutter-y flex flex-wrap justify-center gap-x-gutter-x whitespace-nowrap text-[16vw] font-medium leading-none tracking-[-0.03em] text-white transition-colors duration-100 ease-out after:content-['--------->'] hover:text-green-500 lg:flex-nowrap lg:text-[8vw]"
         >Contact Us</a
       >
       <div class="-mx-gutter-x mt-gutter-y overflow-hidden">
@@ -191,6 +191,24 @@ const { title, description } = Astro.props;
 
   textElements.forEach((textElement) => {
     const ts = new TypeShuffle(textElement);
-    ts.trigger('fx6');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const maxCellInterations = parseInt(
+              entry.target.getAttribute('data-max-cell-interations') || '5'
+            );
+            ts.trigger('fx6', maxCellInterations);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: '0px 0px -10% 0px',
+      }
+    );
+
+    observer.observe(textElement);
   });
 </script>

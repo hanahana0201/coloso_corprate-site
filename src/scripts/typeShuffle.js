@@ -49,6 +49,7 @@ class Cell {
    */
   constructor(DOM_el, { position, previousCellPosition } = {}) {
     this.DOM.el = DOM_el;
+    this.DOM.el.classList.add('invisible');
     this.original = this.DOM.el.innerHTML;
     this.state = this.original;
     this.color = this.originalColor = getComputedStyle(
@@ -145,7 +146,7 @@ export class TypeShuffle {
     fx3: () => this.fx3(),
     fx4: () => this.fx4(),
     fx5: () => this.fx5(),
-    fx6: () => this.fx6(),
+    fx6: (maxCellIterations) => this.fx6(maxCellIterations),
   };
   totalChars = 0;
 
@@ -155,12 +156,16 @@ export class TypeShuffle {
    */
   constructor(DOM_el) {
     this.DOM.el = DOM_el;
+    this.DOM.el.setAttribute('aria-label', this.DOM.el.innerText);
     // Apply Splitting (two times to have lines, words and chars)
     const results = Splitting({
       target: this.DOM.el,
       by: 'lines',
     });
-    results.forEach((s) => Splitting({ target: s.words }));
+    results.forEach((s) => {
+      console.log(s);
+      Splitting({ target: s.words });
+    });
 
     // for every line
     for (const [linePosition, lineArr] of results[0].lines.entries()) {
@@ -415,9 +420,9 @@ export class TypeShuffle {
       }
     }
   }
-  fx6() {
+  fx6(maxCellIterations) {
     // max iterations for each cell to change the current value
-    const MAX_CELL_ITERATIONS = 15;
+    const MAX_CELL_ITERATIONS = maxCellIterations || 5;
     let finished = 0;
     const loop = (line, cell, iteration = 0) => {
       cell.cache = { state: cell.state, color: cell.color };
@@ -449,7 +454,10 @@ export class TypeShuffle {
 
     for (const line of this.lines) {
       for (const cell of line.cells) {
-        setTimeout(() => loop(line, cell), (line.position + 1) * 80);
+        setTimeout(() => {
+          cell.DOM.el.classList.remove('invisible');
+          loop(line, cell);
+        }, (line.position + 1) * 80);
       }
     }
   }
@@ -457,9 +465,9 @@ export class TypeShuffle {
    * call the right effect method (defined in this.effects)
    * @param {string} effect - effect type
    */
-  trigger(effect = 'fx1') {
+  trigger(effect = 'fx1', maxCellIterations = 0) {
     if (!(effect in this.effects) || this.isAnimating) return;
     this.isAnimating = true;
-    this.effects[effect]();
+    this.effects[effect](maxCellIterations);
   }
 }

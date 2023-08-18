@@ -16,7 +16,7 @@ const { pathname } = Astro.url;
   </a>
   <button
     id="menu-toggle"
-    class="min-w-[4.125rem] border border-white px-[0.5em] text-white duration-100 ease-out hover:border-green-500 hover:text-green-500 hover:transition-colors lg:hidden"
+    class="js-type-shuffle min-w-[4.125rem] border border-white px-[0.5em] text-white duration-100 ease-out hover:border-green-500 hover:text-green-500 hover:transition-colors lg:hidden"
     type="button"
     aria-expanded="false"
     aria-controls="menu"
@@ -24,7 +24,7 @@ const { pathname } = Astro.url;
   >
   <nav
     id="menu"
-    class="visible absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain bg-black px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out aria-hidden:invisible aria-hidden:opacity-0 lg:visible lg:relative lg:h-auto lg:p-0"
+    class="js-type-shuffle visible absolute inset-x-0 top-full h-[calc(100vh-32px-theme(spacing.gutter-y))] overflow-y-auto overscroll-contain bg-black px-gutter-x pb-gutter-y pt-gutter-y-0.5 transition-opacity duration-100 ease-out aria-hidden:invisible aria-hidden:opacity-0 lg:visible lg:relative lg:h-auto lg:p-0"
     aria-hidden="true"
     aria-label="Header menu"
   >
@@ -53,7 +53,7 @@ const { pathname } = Astro.url;
               <a
                 href={href}
                 class:list={[
-                  'lg:block lg:px-5 hover:text-green-500 transition-colors duration-100 ease-out',
+                  'gap-[0.5em] lg:flex lg:px-5 hover:text-green-500 transition-colors duration-100 ease-out',
                   isCurrent &&
                     'text-green-500 lg:before:content-["["] lg:after:content-["]"]',
                   className,
